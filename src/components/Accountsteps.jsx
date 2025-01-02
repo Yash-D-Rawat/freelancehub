@@ -35,7 +35,7 @@ function Accountsteps() {
             <h1 className="text-4xl font-bold mb-8 w-1/2">{step.title}</h1>
             <h1 className="text-xl text-wrap text-[#635F5D] w-[60%]">{step.description}</h1>
             <img
-              className="absolute bottom-[85%] mix-blend-multiply"
+              className="absolute bottom-[85%] rounded-full"
               src={step.imgSrc}
               alt={step.altText}
             />
