@@ -9,21 +9,21 @@ const testimonials = [
         comment: "As a startup founder, I needed quality freelancers fast. This platform made hiring a seamless experience with incredible talent at my fingertips.",
         name: "Manav Shah",
         role: "Startup CEO",
-        img: "/images/account.png", // Replace with actual image path
+        img: "/images/account.png",
     },
     {
         id: 2,
         comment: "This platform completely transformed my freelancing career. I went from struggling to find clients to landing high-paying projects every month!",
         name: "Shravani Nikam",
         role: "Digital Marketer",
-        img: "/images/account.png", // Replace with actual image path
+        img: "/images/account.png",
     },
     {
         id: 3,
         comment: "The bidding system is amazing! It allowed me to showcase my skills competitively, and now I have a steady stream of work.",
         name: "Mridula Raul",
         role: "Web Developer",
-        img: "/images/account.png", // Replace with actual image path
+        img: "/images/account.png",
     },
 ];
 
@@ -55,7 +55,7 @@ function Testimonials() {
             {/* Background Video */}
             <video
                 className="absolute top-0 left-0 w-full h-full object-cover"
-                src="/videos/testimonial.mp4" 
+                src="/videos/testimonial.mp4"
                 autoPlay
                 loop
                 muted
@@ -63,7 +63,7 @@ function Testimonials() {
 
             <div className="absolute top-0 left-0 w-full h-full bg-green-950 bg-opacity-70"></div>
 
-            
+
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-white">
                 <h1 className="text-4xl font-bold text-center mb-10">
                     What Our Users Say
@@ -73,9 +73,9 @@ function Testimonials() {
                         {testimonials.map((testimonial) => (
                             <div
                                 key={testimonial.id}
-                                className="flex flex-col justify-center items-center p-5"
+                                className="flex flex-col justify-center items-center p-5 h-full"
                             >
-                                <div className="bg-white bg-opacity-10 shadow-lg rounded-[10%] p-6 text-center transform transition duration-300 hover:scale-105 h-full">
+                                <div className="flex flex-col justify-around bg-white bg-opacity-10 shadow-lg rounded-[10%] p-6 text-center transform transition duration-300 hover:scale-105 h-[500px]">
                                     <p className="italic text-white text-3xl mb-4">
                                         "{testimonial.comment}"
                                     </p>

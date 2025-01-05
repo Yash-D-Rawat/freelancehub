@@ -1,8 +1,10 @@
 import React from 'react';
+import { useTheme } from '../Context/ThemeContext';
 
 function Herosection() {
+  const {theme} = useTheme();
   return (
-    <div className="relative h-screen w-full">
+    <div className={`relative h-screen w-full ${theme === 'dark' ? 'bg-black': 'bg-white'}`}>
       <video 
         autoPlay 
         loop 
