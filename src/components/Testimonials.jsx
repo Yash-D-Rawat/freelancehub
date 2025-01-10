@@ -68,12 +68,12 @@ function Testimonials() {
                 <h1 className="text-4xl font-bold text-center mb-10">
                     What Our Users Say
                 </h1>
-                <div className="w-[80%] px-5">
+                <div className="w-[80%] md:px-5">
                     <Slider {...settings}>
                         {testimonials.map((testimonial) => (
                             <div
                                 key={testimonial.id}
-                                className="flex flex-col justify-center items-center p-5 h-full"
+                                className="flex flex-col justify-center items-center md:p-5 h-full"
                             >
                                 <div className="flex flex-col justify-around bg-white bg-opacity-10 shadow-lg rounded-[10%] p-6 text-center transform transition duration-300 hover:scale-105 h-[500px]">
                                     <p className="italic text-white text-3xl mb-4">
@@ -87,7 +87,7 @@ function Testimonials() {
                                             className="w-16 h-16 rounded-full mb-4"
                                         />
                                         <div className="flex flex-col items-start">
-                                            <h2 className="font-bold text-3xl text-green-400">{testimonial.name}</h2>
+                                            <h2 className="font-bold text-3xl text-green-400 text-start">{testimonial.name}</h2>
                                             <p className="text-lg ">{testimonial.role}</p>
                                         </div>
                                     </div>

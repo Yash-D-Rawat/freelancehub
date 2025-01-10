@@ -5,7 +5,7 @@ import Chats from './Chats'
 function Messages() {
     const [select, setselect] = useState(0)
   return (
-    <div className='flex w-full justify-around'>
+    <div className='flex w-[80%] justify-around'>
         
         <ChatList select = {select} setselect = {setselect}/>
         <Chats select = {select}/>

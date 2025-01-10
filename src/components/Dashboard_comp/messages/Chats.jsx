@@ -1,13 +1,17 @@
 import React, { useEffect, useRef } from 'react';
-import { FaCamera, FaMicrophone, FaPhoneAlt, FaSmile } from 'react-icons/fa';
+import { FaCamera, FaMicrophone, FaMoon, FaPhoneAlt, FaSmile, FaSun } from 'react-icons/fa';
 import { CiMenuKebab } from 'react-icons/ci';
 import { motion, AnimatePresence } from 'framer-motion';
 import { statusList } from '../../data/Overview_data';
+import { faBell } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useTheme } from '../../../Context/ThemeContext';
 
 function Chats({ select }) {
     const messagesEndRef = useRef(null);
     let client = statusList[select];
     let messages = client.messages;
+    const { theme, toggleTheme } = useTheme()
 
     useEffect(() => {
         const scrollToBottom = () => {
@@ -22,7 +26,7 @@ function Chats({ select }) {
 
     return (
         <div className='w-[70%]'>
-            
+
             <AnimatePresence mode='wait'>
                 <motion.div
                     className='w-full flex items-center justify-between px-9 py-6'
@@ -33,20 +37,27 @@ function Chats({ select }) {
                     key={`header-${select}`} // Unique key for header
                 >
                     <div className='flex gap-3 items-center'>
-                        <img src="images/soham.jpeg" alt="" className='rounded-full h-14' />
+                        <img src="images/soham.jpeg" alt="" className={`rounded-full h-14 ${theme === 'dark' ? 'border-white' : 'border-[#e8e8e8]'}  border-[4px]`} />
                         <div>
-                            <h1 className='font-semibold text-2xl'>{client.name}</h1>
+                            <h1 className={`${theme === 'dark' ? 'text-white': ''} font-semibold text-2xl`}>{client.name}</h1>
                             <p className={`${client.status === 'online' ? 'text-[#00bf63]' : ''}`}>{client.status}</p>
                         </div>
                     </div>
-                    <div className='flex gap-5'>
-                        <FaPhoneAlt className='size-6 text-black' />
-                        <CiMenuKebab className='size-7 text-black' />
+                    <div className='flex gap-5 items-center'>
+                        <button
+                            className={`p-2 rounded-full border-2 bg-transparent ${theme === 'dark' ? 'text-white border-white' : 'text-black border-black'}`}
+                            onClick={toggleTheme}
+                        >
+                            {theme === 'dark' ? <FaSun /> : <FaMoon />}
+                        </button>
+                        <FaPhoneAlt className={`size-6 text-black ${theme === 'dark' ? 'text-white': ''}`} />
+                        <CiMenuKebab className={`size-7 text-black ${theme === 'dark' ? 'text-white': ''}`}/>
+
                     </div>
                 </motion.div>
 
                 <motion.div
-                    className='w-full p-7 overflow-y-auto h-[75%] no-scrollbar bg-[#f7f7f7] rounded-lg'
+                    className={`w-full p-7 overflow-y-auto h-[75%] no-scrollbar ${theme==='dark' ? 'bg-[#2E2E2E]': 'bg-[#F7F7F7]'}  rounded-lg`}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -69,7 +80,7 @@ function Chats({ select }) {
                                     {!temp && item.contact}
                                 </div>
 
-                                <span className='px-4'>{item.time}</span>
+                                <span className={`px-4 ${theme === 'dark' ? 'text-white':''}`}>{item.time}</span>
                             </motion.div>
                         );
                     })}
@@ -87,7 +98,7 @@ function Chats({ select }) {
                     <input
                         type="text"
                         placeholder="Type a message...."
-                        className="p-2 flex-grow rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#089451]"
+                        className="py-2 px-5 flex-grow rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#089451]"
                     />
                 </div>
 

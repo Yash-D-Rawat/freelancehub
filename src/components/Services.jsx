@@ -3,44 +3,53 @@ import { motion } from "framer-motion";
 
 function Services() {
     const services = [
-        { title: 'Web Development', description: 'Get custom websites designed and developed to meet your business needs. Responsive and optimized for performance.', icon: '🌐' },
-        { title: 'Graphic Design', description: 'Create stunning visuals and graphics.', icon: '🎨' },
-        { title: 'Content Writing', description: 'Deliver compelling and engaging content.', icon: '✍️' },
-        { title: 'Digital Marketing', description: 'Boost your online presence and reach.', icon: '📈' },
-        { title: 'Mobile App Development', description: 'Develop user-friendly mobile apps.', icon: '📱' },
-        { title: 'UI/UX Design', description: 'Design seamless user experiences.', icon: '🖌️' },
+        { title: 'Web Development', description: 'Custom websites tailored to your business needs. Fully responsive and optimized for performance across devices.', icon: '🌐' },
+        { title: 'Graphic Design', description: 'Design stunning visuals and eye-catching graphics to communicate your brand effectively and professionally.', icon: '🎨' },
+        { title: 'Content Writing', description: 'Provide compelling and well-crafted content for blogs, websites, and marketing materials that engage your audience.', icon: '✍️' },
+        { title: 'Digital Marketing', description: 'Enhance your online presence with digital marketing strategies that help you grow your reach and audience engagement.', icon: '📈' },
+        { title: 'Mobile App Development', description: 'Create intuitive mobile applications designed for seamless user experiences and optimal performance across platforms.', icon: '📱' },
+        { title: 'UI/UX Design', description: 'Design user interfaces and experiences that are visually appealing, intuitive, and enhance overall usability and functionality.', icon: '🖌️' },
     ];
 
     return (
-        <div className="w-[90%] flex flex-col justify-center items-center my-14 px-6">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-20">
             {/* Heading */}
             <motion.h1
-                className="text-4xl font-bold mb-10"
+                className="text-4xl font-extrabold text-center mb-12 text-gray-800"
                 initial={{ opacity: 0, y: -50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
             >
-                Explore Our Services
+                Our Premium Services
             </motion.h1>
 
             {/* Services Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {services.map((service, index) => (
                     <motion.div
                         key={index}
-                        className="p-6 rounded-[10%] shadow-[0px_10px_20px_0px_rgba(0,_0,_0,_0.15)] text-center"
+                        className="relative bg-white p-8 rounded-xl shadow-lg transform transition duration-500 ease-in-out hover:shadow-2xl"
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{
-                            duration: 0.6,
+                            duration: 0.3,
                             delay: index * 0.2,
+                            scale: { type: 'spring', stiffness: 300, damping: 15 },
                         }}
                         viewport={{ once: true }}
+                        whileHover={{
+                            scale: 1.05, // Scales the card on hover
+                            transition: { duration: 0.3, delay: 0 }, // Smooth transition for scaling on hover
+                        }}
+    
                     >
-                        <div className="text-5xl mb-4 p-5">{service.icon}</div>
-                        <h2 className="text-3xl font-bold mb-2">{service.title}</h2>
-                        <p className="text-gray-600 text-2xl">{service.description}</p>
+                        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-[#40AB7A] to-[#0A673B] opacity-80 rounded-xl z-0"></div>
+                        <div className="relative z-10">
+                            <div className="text-5xl mb-6">{service.icon}</div>
+                            <h2 className="text-3xl font-semibold text-white mb-4">{service.title}</h2>
+                            <p className="text-white font-semibold leading-relaxed">{service.description}</p>
+                        </div>
                     </motion.div>
                 ))}
             </div>
