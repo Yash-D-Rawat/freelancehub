@@ -317,7 +317,7 @@ function MyBiddings({ handlepage, page }) {
                     className="grid grid-cols-1 md:grid-cols-3 gap-10"
                 >
                     {myBiddings.map((item) => {
-                        if (item.status === 'Pending') {
+                        if (item.status === 'Rejected') {
                             return <div className='rounded-lg'>
                             <div className={`${item.status === 'Accepted' ? 'bg-[#089451]' : ''}  
                                 ${item.status === 'Rejected' ? 'bg-[#949494]' : ''} 

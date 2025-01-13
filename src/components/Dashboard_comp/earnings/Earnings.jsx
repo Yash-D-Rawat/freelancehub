@@ -9,15 +9,45 @@ import { motion } from 'framer-motion';
 import { BsHourglassSplit } from "react-icons/bs";
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 import { paymentsData } from '../../data/Overview_data';
+import { earnings } from '../../data/Payment';
+import { DataGrid } from '@mui/x-data-grid';
+import { CheckCircle, HourglassEmpty } from '@mui/icons-material';
 
 const options = [
     { name: 'Overview', icon: faGauge },
     { name: 'Messages', icon: faComments },
     { name: 'My Projects', icon: faLightbulb },
-    { name: 'Proposals', icon: faRectangleList },
+    { name: 'My Biddings', icon: faRectangleList },
     { name: 'Earnings', icon: faMoneyBillTrendUp },
     { name: 'Calendar', icon: faCalendar },
 ];
+
+const columns = [
+    { field: 'date', headerName: 'Date', width: 180 },
+    { field: 'client', headerName: 'Client', width: 250 },
+    { field: 'amount', headerName: 'Amount', width: 150, },
+    { field: 'project', headerName: 'Project', width: 300 },
+    {
+        field: 'status',
+        headerName: 'Status',
+        width: 150,
+        renderCell: (params) => {
+            const status = params.value;
+            const statusStyles = {
+                backgroundColor: status === 'completed' ? 'green' : 'orange', // Green for completed, orange for pending
+                color: 'white', // Text color white
+                fontWeight: '600', // Semibold text
+                fontSize: '16px', // Slightly larger than default row text
+                padding: '7px 10px', // Padding for better visibility
+                borderRadius: '20px', // Rounded corners for the cell
+                textAlign: 'center' // Center the text
+            };
+            return <span style={statusStyles}>{status === 'completed' ? <CheckCircle /> : <HourglassEmpty />} {status}</span>;
+        }
+    }
+];
+
+
 
 const details = [
     {
@@ -37,6 +67,31 @@ const details = [
 function Earnings({ handlepage, page }) {
     const { theme, toggleTheme } = useTheme();
     const [open, setOpen] = React.useState(false);
+
+    const gridStyles = {
+        '.MuiDataGrid-columnHeaders': {
+            // Header background color
+
+            fontSize: '18px', // Larger font size for the header
+            fontWeight: '800', // Semibold font weight for header
+            color: '#089451', // Header text color
+            borderBottom: '2px solid #ccc' // Optional: Add a border below the header
+        },
+        '.MuiDataGrid-cell': {
+            fontSize: '16px', // Slightly larger font for rows
+            fontWeight: '600', // Semibold font weight for rows
+            color: theme === 'dark' ? 'white': '',
+            
+        },
+        '.MuiDataGrid-row': {
+
+            '&:hover': {
+                transform: 'scale(1.05)', // Apply scale effect on hover
+                transition: 'transform 0.4s ease', // Smooth transition for scaling
+                zIndex: 1, // Ensure hovered row is on top of other rows
+            }
+        }
+    };
 
     const toggleDrawer = (newOpen) => (event) => {
         if (
@@ -157,6 +212,26 @@ function Earnings({ handlepage, page }) {
                         </ResponsiveContainer>
                     </div>
                 </div>
+            </div>
+
+            <div className='w-full p-4 mt-6'>
+                <Box sx={{ height: 400, width: '100%' }}>
+                    <DataGrid
+
+                        rows={earnings}
+                        columns={columns}
+                        pageSize={5}
+                        rowsPerPageOptions={[5]}
+
+                        disableSelectionOnClick
+                        sx={gridStyles}
+                        filterModel={{
+                            items: [
+                                { columnField: 'status', operatorValue: 'contains', value: '' }
+                            ],
+                        }}
+                    />
+                </Box>
             </div>
 
         </div>

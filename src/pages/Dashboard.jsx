@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Sidebar from '../components/Dashboard_comp/Sidebar'
 import Overview from '../components/Dashboard_comp/Overview'
-import Navbar from '../components/Navbar'
+
 import { useTheme } from '../Context/ThemeContext'
 import Messages from '../components/Dashboard_comp/messages/Messages'
 import Myprojects from '../components/projects/Myprojects'

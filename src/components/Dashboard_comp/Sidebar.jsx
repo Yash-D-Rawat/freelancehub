@@ -65,7 +65,7 @@ export default function Sidenav({ handlepage, page }) {
 
     return (
         <>
-            {/* Mobile View */}
+            
             
 
             {/* Desktop View */}

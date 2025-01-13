@@ -29,10 +29,11 @@ function Navbar() {
                     Home
                 </li>
                 <li
-                    className={`cursor-pointer text-lg ${theme === 'dark' ? 'text-white' : 'text-black'} ${selectedLink === 'howItWorks' ? 'border-b-2 border-[#FFA500]' : ''}`}
-                    onClick={() => handleLinkClick('howItWorks')}
+                    className={`cursor-pointer text-lg ${theme === 'dark' ? 'text-white' : 'text-black'} ${selectedLink === 'joblisting' ? 'border-b-2 border-[#FFA500]' : ''}`}
+                    onClick={() => handleLinkClick('joblisting')}
                 >
-                    How it Works
+                    
+                    <Link to='/joblisting'>Find Jobs</Link>
                 </li>
                 <li
                     className={`cursor-pointer text-lg ${theme === 'dark' ? 'text-white' : 'text-black'} ${selectedLink === 'dashboard' ? 'border-b-2 border-[#FFA500]' : ''}`}

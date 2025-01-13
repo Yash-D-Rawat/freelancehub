@@ -106,17 +106,17 @@ function Myprojects({ handlepage, page }) {
         enter: (direction) => ({
             x: direction > 0 ? '100%' : '-100%',
             opacity: 0,
-            transition: { type: 'spring', stiffness: 300, damping: 15 },
+            transition: { type: 'spring', stiffness: 200, damping: 20 },
         }),
         center: {
             x: 0,
             opacity: 1,
-            transition: { type: 'spring', stiffness: 300, damping: 15 },
+            transition: { type: 'spring', stiffness: 200, damping: 20 },
         },
         exit: (direction) => ({
             x: direction > 0 ? '-100%' : '100%',
             opacity: 0,
-            transition: { type: 'spring', stiffness: 300, damping: 15 },
+            transition: { type: 'spring', stiffness: 200, damping: 20 },
         }),
     };
 

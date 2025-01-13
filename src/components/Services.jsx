@@ -1,7 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTheme } from "../Context/ThemeContext";
 
 function Services() {
+    const {theme} = useTheme()
     const services = [
         { title: 'Web Development', description: 'Custom websites tailored to your business needs. Fully responsive and optimized for performance across devices.', icon: '🌐' },
         { title: 'Graphic Design', description: 'Design stunning visuals and eye-catching graphics to communicate your brand effectively and professionally.', icon: '🎨' },
@@ -15,7 +17,7 @@ function Services() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-20">
             {/* Heading */}
             <motion.h1
-                className="text-4xl font-extrabold text-center mb-12 text-gray-800"
+                className={`${theme === 'dark' ?'text-white':'text-gray-800'} text-4xl font-extrabold text-center mb-12 `}
                 initial={{ opacity: 0, y: -50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
