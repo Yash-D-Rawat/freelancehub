@@ -8,6 +8,7 @@ import Navbar from '../components/Navbar'
 import { useTheme } from '../Context/ThemeContext'
 import PaymentGateway from '../components/PaymentGateway'
 import Sidenav from '../components/Sidenav'
+import Footer from '../components/Footer'
 
 function LandingPage() {
   const { theme } = useTheme();
@@ -32,11 +33,14 @@ function LandingPage() {
         <section className="w-full sm:w-11/12 md:w-full">
           <Testimonials />
         </section>
-        <section className="w-full sm:w-11/12 md:w-full">
+        {/* <section className="w-full sm:w-11/12 md:w-full">
           <Signup />
         </section>
         <section className="w-full sm:w-11/12 md:w-full">
           <PaymentGateway />
+        </section> */}
+        <section className="w-full sm:w-11/12 md:w-full">
+          <Footer />
         </section>
       </main>
     </div>

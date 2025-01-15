@@ -9,9 +9,10 @@ import { motion } from 'framer-motion';
 import { BsHourglassSplit } from "react-icons/bs";
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 import { paymentsData } from '../../data/Overview_data';
-import { earnings } from '../../data/Payment';
+import { earnings, news } from '../../data/Payment';
 import { DataGrid } from '@mui/x-data-grid';
 import { CheckCircle, HourglassEmpty } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 const options = [
     { name: 'Overview', icon: faGauge },
@@ -19,7 +20,7 @@ const options = [
     { name: 'My Projects', icon: faLightbulb },
     { name: 'My Biddings', icon: faRectangleList },
     { name: 'Earnings', icon: faMoneyBillTrendUp },
-    { name: 'Calendar', icon: faCalendar },
+    { name: 'Manage Projects', icon: faCalendar },
 ];
 
 const columns = [
@@ -80,8 +81,8 @@ function Earnings({ handlepage, page }) {
         '.MuiDataGrid-cell': {
             fontSize: '16px', // Slightly larger font for rows
             fontWeight: '600', // Semibold font weight for rows
-            color: theme === 'dark' ? 'white': '',
-            
+            color: theme === 'dark' ? 'white' : '',
+
         },
         '.MuiDataGrid-row': {
 
@@ -154,14 +155,15 @@ function Earnings({ handlepage, page }) {
                         {theme === 'dark' ? <FaSun /> : <FaMoon />}
                     </button>
                     <FontAwesomeIcon icon={faBell} className='text-xl hidden md:block' />
-                    <span className='text-white font-semibold text-lg bg-gradient-to-r from-[#40AB7A] to-[#0A673B] px-3 py-2 rounded-lg'>+ New Proposal</span>
+                    <span className='text-white font-semibold text-lg bg-gradient-to-r from-[#40AB7A] to-[#0A673B] px-3 py-2 rounded-lg'><Link to={'/joblisting'}>+ Find a Job</Link></span>
                 </div>
             </div>
 
-            <h1 className={`text-3xl font-bold mt-8 mb-4 ${theme === 'dark' ? 'text-[#CDCDCD]' : ''}`}>Earnings Overview</h1>
+
             {/* numeric data */}
-            <div className='flex w-full'>
-                <div className='w-1/2'>
+            <div className='md:flex w-full mt-8 mb-4 gap-2 h-[32rem]'>
+                <div className='w-full md:w-1/2'>
+                    <h1 className={`text-3xl font-bold mb-4 ${theme === 'dark' ? 'text-[#CDCDCD]' : ''}`}>Earnings Overview</h1>
                     <motion.div
                         className=' grid grid-cols-2 w-full gap-4 bg-gradient-to-r from-[#40AB7A] to-[#0A673B] p-4 rounded-lg'
                         initial="hidden"
@@ -210,6 +212,22 @@ function Earnings({ handlepage, page }) {
                                 <Bar dataKey="amount" fill="#089451" radius={[10, 10, 0, 0]} />
                             </BarChart>
                         </ResponsiveContainer>
+                    </div>
+                </div>
+                {/* Trending news */}
+                <div className='w-full md:w-1/2 px-4 pb-5 border-[#94A0A9] rounded-lg shadow-xl'>
+                    <h1 className='text-black text-2xl font-bold mb-3'>Trending News</h1>
+                    <Divider style={{ width: '50%' }} />
+                    <div className='overflow-y-auto h-[94%] no-scrollbar'>
+                        {news.map((item) => {
+                            return <div className='mb-4'>
+                                <img src="" alt="" />
+                                <div>
+                                    <h1 className='truncate text-[#089451] text-lg font-bold'>{item.headline}</h1>
+                                    <p className='line-clamp-2 text-lg font-bold'>{item.description}</p>
+                                </div>
+                            </div>
+                        })}
                     </div>
                 </div>
             </div>

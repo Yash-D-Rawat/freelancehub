@@ -54,8 +54,8 @@ const AccountSteps = () => {
 
   return (
     <div className={`transition-all duration-300 ease-in-out flex flex-col justify-center items-center text-center my-14 ${theme === 'dark' ? 'bg-black text-[#00BF63]' : 'bg-white text-black'}`}>
-      <h1 className={`font-bold text-4xl md:text-6xl ${theme === 'dark' ? 'text-white' : 'text-black'}`}>Get Started in 3 Easy</h1>
-      <h1 className={`font-bold text-4xl md:text-6xl ${theme === 'dark' ? 'text-white' : 'text-black'}`}>Steps</h1>
+      <h1 className={`font-bold text-3xl md:text-5xl ${theme === 'dark' ? 'text-white' : 'text-black'}`}>Get Started in 3 Easy</h1>
+      <h1 className={`font-bold text-3xl md:text-5xl ${theme === 'dark' ? 'text-white' : 'text-black'}`}>Steps</h1>
       <div className="flex flex-wrap justify-center gap-6 mt-20">
         {steps.map((step, index) => (
           <div
@@ -63,7 +63,7 @@ const AccountSteps = () => {
             ref={(el) => (stepsRef.current[index] = el)}
             className={`transition-all duration-300 ease-in-out relative w-[90%] sm:w-[45%] md:w-[27%] mb-20 md:mb-0 pt-14 pb-10 md:pt-20 md:pb-14 rounded-3xl flex flex-col items-center ${theme === 'dark' ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-50 shadow-lg'}`}
           >
-            <h1 className="text-2xl md:text-4xl font-bold mb-6 md:mb-8 w-3/4 md:w-1/2">{step.title}</h1>
+            <h1 className="text-2xl md:text-4xl font-bold mb-6 md:mb-8 w-3/4 ">{step.title}</h1>
             <p className={`text-md md:text-xl text-wrap w-[80%] md:w-[60%] ${theme === 'dark' ? 'text-gray-300' : 'text-[#635F5D]'}`}>
               {step.description}
             </p>

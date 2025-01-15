@@ -15,7 +15,7 @@ const options = [
     { name: 'My Projects', icon: faLightbulb },
     { name: 'My Biddings', icon: faRectangleList },
     { name: 'Earnings', icon: faMoneyBillTrendUp },
-    { name: 'Calendar', icon: faCalendar },
+    { name: 'Manage Projects', icon: faCalendar },
 ];
 
 export default function Sidenav({ handlepage, page }) {

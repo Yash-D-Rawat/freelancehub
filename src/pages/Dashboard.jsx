@@ -7,6 +7,7 @@ import Messages from '../components/Dashboard_comp/messages/Messages'
 import Myprojects from '../components/projects/Myprojects'
 import MyBiddings from '../components/MyBiddings'
 import Earnings from '../components/Dashboard_comp/earnings/Earnings'
+import CustomKanban from '../components/Kanban/CustomKanban'
 
 function Dashboard() {
   const { theme } = useTheme()
@@ -26,6 +27,7 @@ function Dashboard() {
       {(page == 'My Projects') && <Myprojects handlepage = {handlepage} page={page}/>}
       {(page == 'My Biddings') && <MyBiddings handlepage = {handlepage} page={page}/>}
       {(page == 'Earnings') && <Earnings handlepage = {handlepage} page={page}/>}
+      {(page == 'Manage Projects') && <CustomKanban handlepage = {handlepage} page={page}/>}
     </div>
   )
 }

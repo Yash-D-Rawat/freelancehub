@@ -85,61 +85,61 @@ export const chatlistdata = [
   {
     name: 'John Doe',
     latestMessage: 'Hey! How are you doing?',
-    image: '',
+    image: '/images/person/m1.jpg',
     color: 'text-black'
   },
   {
     name: 'Jane Smith',
     latestMessage: 'Don’t forget the meeting tomorrow.',
-    image: '',
+    image: '/images/person/f1.jpg',
     color: 'text-[#089451]'
   },
   {
     name: 'Michael Brown',
     latestMessage: 'Can we reschedule our call?',
-    image: '',
+    image: '/images/person/m2.jpg',
     color: 'text-black'
   },
   {
     name: 'Emily Davis',
     latestMessage: 'I’ll send you the documents shortly.',
-    image: '',
+    image: '/images/person/f2.jpeg',
     color: 'text-[#089451]'
   },
   {
     name: 'David Wilson',
     latestMessage: 'Thanks for your help!',
-    image: '',
+    image: '/images/person/m3.jpg',
     color: 'text-black'
   },
   {
     name: 'Sophia Johnson',
     latestMessage: 'Looking forward to our collaboration.',
-    image: '',
+    image: '/images/person/f3.jpeg',
     color: 'text-[#089451]'
   },
   {
     name: 'Chris Lee',
     latestMessage: 'Can you review my latest code?',
-    image: '',
+    image: '/images/soham.jpeg',
     color: 'text-black'
   },
   {
     name: 'Olivia Martinez',
     latestMessage: 'I’ve completed the task you assigned.',
-    image: '',
+    image: '/images/jheel.jpeg',
     color: 'text-[#089451]'
   },
   {
     name: 'James Garcia',
     latestMessage: 'Let’s catch up this weekend!',
-    image: '',
+    image: '/images/person/m1.jpg',
     color: 'text-black'
   },
   {
     name: 'Isabella Hernandez',
     latestMessage: 'I’ll update you on the project status.',
-    image: '',
+    image: '/images/mridula.jpeg',
     color: 'text-[#089451]'
   }
 ];

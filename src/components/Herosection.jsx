@@ -51,21 +51,21 @@ function Herosection() {
 
         <div className="flex flex-col sm:flex-row gap-8 sm:gap-16">
           <div className="flex flex-col items-center">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold">{freelancers}+ </h2>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#45b280]">{freelancers}+ </h2>
             <p className="text-lg sm:text-xl">Freelancers</p>
           </div>
           <div className="flex flex-col items-center">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold">{jobs}+ </h2>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#FFA500]">{jobs}+ </h2>
             <p className="text-lg sm:text-xl">Jobs</p>
           </div>
           <div className="flex flex-col items-center">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold">{projects}+ </h2>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#45b280]">{projects}+ </h2>
             <p className="text-lg sm:text-xl">Projects</p>
           </div>
         </div>
       </div>
 
-      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-0"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60 z-0"></div>
     </div>
   );
 }

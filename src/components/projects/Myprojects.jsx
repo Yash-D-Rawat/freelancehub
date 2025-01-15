@@ -12,6 +12,7 @@ import { motion } from 'framer-motion';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import { Divider, Drawer } from '@mui/material';
 import { IoMenu } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 
 const options = [
     { name: 'Overview', icon: '' },
@@ -19,7 +20,7 @@ const options = [
     { name: 'My Projects', icon: faLightbulb },
     { name: 'My Biddings', icon: faRectangleList },
     { name: 'Earnings', icon: faMoneyBillTrendUp },
-    { name: 'Calendar', icon: faCalendar },
+    { name: 'Manage Projects', icon: faCalendar },
 ];
 
 function CustomTabPanel(props) {
@@ -139,7 +140,7 @@ function Myprojects({ handlepage, page }) {
                         {theme === 'dark' ? <FaSun /> : <FaMoon />}
                     </button>
                     <FontAwesomeIcon icon={faBell} className='text-xl hidden md:block' />
-                    <span className='text-white font-semibold text-lg bg-gradient-to-r from-[#40AB7A] to-[#0A673B] px-3 py-2 rounded-lg'>+ New Proposal</span>
+                    <span className='text-white font-semibold text-lg bg-gradient-to-r from-[#40AB7A] to-[#0A673B] px-3 py-2 rounded-lg'><Link to={'/joblisting'}>+ Find a Job</Link></span>
                 </div>
             </div>
 

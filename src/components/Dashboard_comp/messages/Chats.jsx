@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { FaCamera, FaMicrophone, FaMoon, FaPhoneAlt, FaSmile, FaSun, FaArrowLeft } from 'react-icons/fa';
 import { CiMenuKebab } from 'react-icons/ci';
 import { motion, AnimatePresence } from 'framer-motion';
-import { statusList } from '../../data/Overview_data';
+import { chatlistdata, statusList } from '../../data/Overview_data';
 import { useTheme } from '../../../Context/ThemeContext';
 
 function Chats({ select, setShowChat }) {
@@ -32,7 +32,7 @@ function Chats({ select, setShowChat }) {
                 >
                     <div className="flex gap-3 items-center">
                         <FaArrowLeft className="cursor-pointer sm:hidden" onClick={() => setShowChat(false)} />
-                        <img src="images/soham.jpeg" alt="" className={`rounded-full h-14 ${theme === 'dark' ? 'border-white' : 'border-[#e8e8e8]'} border-[4px]`} />
+                        <img src={chatlistdata[select].image} alt="" className={`rounded-full h-14 ${theme === 'dark' ? 'border-white' : 'border-[#e8e8e8]'} border-[4px]`} />
                         <div>
                             <h1 className={`${theme === 'dark' ? 'text-white' : ''} font-semibold text-2xl`}>{client.name}</h1>
                             <p className={`${client.status === 'online' ? 'text-[#00bf63]' : ''}`}>{client.status}</p>
@@ -69,7 +69,9 @@ function Chats({ select, setShowChat }) {
                                 transition={{ duration: 0.3, delay: index * 0.1 }}
                             >
                                 <div className={`relative w-[70%] md:w-[40%] p-4 rounded-xl text-white font-semibold ${temp ? 'bg-[#FFA500]' : 'bg-[#089451]'} shadow-[0_4px_8px_rgba(0,0,0,0.5)]`}>
-                                    <img src="/images/soham.jpeg" alt="" className={`absolute -top-[17%] ${temp ? '-right-[5%]' : '-left-[5%]'} rounded-full h-10`} />
+                                    {!temp && <img src={chatlistdata[select]['image']} alt="" className={`absolute -top-[17%] ${temp ? '-right-[5%]' : '-left-[5%]'} rounded-full h-10`} />}
+                                    {temp && <img src={`images/yashavatar.png`} alt="" className={`absolute -top-[17%] ${temp ? '-right-[5%]' : '-left-[5%]'} rounded-full h-10`} />}
+
                                     {temp && item.me}
                                     {!temp && item.contact}
                                 </div>

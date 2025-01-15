@@ -1,15 +1,8 @@
-import React, { useState } from 'react'
-import { useTheme } from '../../Context/ThemeContext'
-import { Divider, FormGroup, Slider } from '@mui/material';
-import { BiCategory } from "react-icons/bi";
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
-import Checkbox from '@mui/material/Checkbox';
-import { GiTakeMyMoney } from 'react-icons/gi';
-import { SiLevelsdotfyi } from "react-icons/si";
+import { Checkbox, Divider, FormControl, FormControlLabel, FormGroup, Radio, RadioGroup } from '@mui/material';
+import React from 'react'
+import { BiCategory } from 'react-icons/bi';
+import { useTheme } from '../../Context/ThemeContext';
+import { SiLevelsdotfyi } from 'react-icons/si';
 
 
 const commonCheckboxStyles = {
@@ -30,11 +23,6 @@ const commonCheckboxStyles = {
     },
 };
 
-const commonLabelStyles = {
-    typography: 'caption', // Smaller text size
-    margin: '-4px 0' // Reduce vertical space between labels
-};
-
 const sliderStyles = {
     '& .MuiSlider-thumb': {
         color: '#00bf63', // Green thumb
@@ -50,6 +38,11 @@ const sliderStyles = {
     },
 };
 
+const commonLabelStyles = {
+    typography: 'caption', // Smaller text size
+    margin: '-4px 0' // Reduce vertical space between labels
+};
+
 const radioStyles = {
     '& .MuiSvgIcon-root': {
         color: '#ffffff', // Default white color for the radio icon
@@ -62,31 +55,18 @@ const radioStyles = {
     },
 };
 
-function Filters() {
+function Freelancefilters() {
     const { theme, toggleTheme } = useTheme();
-    const [min, setmin] = useState(10000)
-    const [max, setmax] = useState(20000)
-
-    const handleminChange = (event, newValue) => {
-        setmin(newValue);
-    };
-
-    const handlemaxChange = (event, newValue) => {
-        setmax(newValue);
-    };
 
     return (
-        <div className={`py-6 overflow-y-auto no-scrollbar hidden md:flex flex-col ${theme === 'dark' ? 'bg-[#089451]' : 'bg-black'} w-[20%] items-center h-full`}>
-            <Divider style={{ backgroundColor: 'white' }} />
-
+        <div className={`p-6 overflow-y-auto no-scrollbar hidden md:flex flex-col ${theme === 'dark' ? 'bg-[#089451]' : 'bg-black'} w-[20%] items-center h-full`}>
             <div className='text-white text-lg font-semibold'>Custom Filters</div>
 
-            {/* Category */}
             <div className='w-full p-5 flex flex-col '>
                 <Divider style={{ backgroundColor: 'white', width: '100%' }} />
                 <div className='rounded-xl w-full flex items-center gap-6 bg-[#1a1a1a] mb-3 mt-5 py-1 px-4'>
                     <BiCategory className='size-6 text-[#00bf63]' />
-                    <p className={`text-lg font-semibold text-white`}>Category</p>
+                    <p className={`text-lg font-semibold text-white`}>Skills</p>
                 </div>
                 <FormGroup className='text-white'>
                     {[
@@ -108,20 +88,6 @@ function Filters() {
                 </FormGroup>
             </div>
 
-            {/* Budget */}
-            <div className='w-full p-5 flex flex-col '>
-                <Divider style={{ backgroundColor: 'white', width: '100%' }} />
-                <div className='rounded-xl w-full flex items-center gap-6 bg-[#1a1a1a] mb-3 mt-5 py-1 px-4'>
-                    <GiTakeMyMoney className='size-6 text-[#00bf63]' />
-                    <p className={`text-lg font-semibold text-white`}>Budget</p>
-                </div>
-                <p className='text-white'>Minimum: ${min}</p>
-                <Slider defaultValue={50} max={100000} aria-label="Default" valueLabelDisplay="auto" value={min} onChange={handleminChange} sx={sliderStyles} />
-
-                <p className='text-white'>Maximum: ${max}</p>
-                <Slider defaultValue={50} max={100000} aria-label="Default" valueLabelDisplay="auto" value={max} onChange={handlemaxChange} sx={sliderStyles} />
-            </div>
-
             <div className='w-full p-5 flex flex-col'>
                 <Divider style={{ backgroundColor: 'white', width: '100%' }} />
                 <div className='rounded-xl w-full flex items-center gap-6 bg-[#1a1a1a] mb-3 mt-5 py-1 px-4'>
@@ -129,7 +95,7 @@ function Filters() {
                     <p className={`text-lg font-semibold text-white`}>Experience</p>
                 </div>
                 <FormControl>
-                    
+
                     <RadioGroup
                         aria-labelledby="experience-radio-buttons-group-label"
                         defaultValue="Entry-level"
@@ -157,4 +123,4 @@ function Filters() {
     )
 }
 
-export default Filters
+export default Freelancefilters

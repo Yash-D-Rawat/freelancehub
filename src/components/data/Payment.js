@@ -30,3 +30,58 @@ export const earnings = [
     { id: 29, date: 'Jan 5, 2025', client: 'Bright Future Solutions', amount: 3600, project: 'Business Consulting', status: 'completed' },
     { id: 30, date: 'Jan 4, 2025', client: 'Urban Innovations', amount: 2800, project: 'Social Media Strategy', status: 'completed' }
 ];
+
+
+export const news = [
+    {
+        image: '',
+        headline: 'Freelancers See Increase in Demand for Digital Marketing Services',
+        description: 'With more businesses shifting to online platforms, freelancers specializing in digital marketing are seeing an uptick in job offers and project opportunities.',
+    },
+    {
+        image: '',
+        headline: 'Freelancing: The Future of Remote Work?',
+        description: 'Freelancing is becoming an increasingly popular career choice as people embrace remote work. In this new economy, freelancers enjoy flexibility and autonomy.',
+    },
+    {
+        image: '',
+        headline: 'How to Manage Finances as a Freelancer',
+        description: 'Managing income as a freelancer can be challenging. This guide provides tips on budgeting, saving, and handling irregular payments for a stable financial future.',
+    },
+    {
+        image: '',
+        headline: 'Top 5 Money Management Tools for Freelancers',
+        description: 'Discover the best money management tools for freelancers to help track expenses, invoice clients, and manage taxes with ease.',
+    },
+    {
+        image: '',
+        headline: 'The Rise of the Gig Economy: What Freelancers Need to Know',
+        description: 'The gig economy continues to grow, offering new opportunities for freelancers in various fields. Learn how freelancers can stay ahead in this evolving job market.',
+    },
+    {
+        image: '',
+        headline: 'Freelancer or Full-time? How to Decide the Right Career Path for You',
+        description: 'The decision between freelancing and full-time employment can be daunting. This article explores the pros and cons of each to help you make the right choice.',
+    },
+    {
+        image: '',
+        headline: 'How to Set Your Rates as a Freelancer: A Comprehensive Guide',
+        description: 'Setting the right rate is crucial for freelancers. This guide breaks down how to determine your hourly or project-based rates while factoring in skills, experience, and market demand.',
+    },
+    {
+        image: '',
+        headline: 'Freelancing vs. Traditional Employment: Which Is More Profitable?',
+        description: 'Comparing the earning potential of freelancers and traditional employees, this article analyzes which option offers better financial stability and long-term growth.',
+    },
+    {
+        image: '',
+        headline: 'Freelancer Tax Tips: What You Need to Know',
+        description: 'Freelancers must manage their own taxes, but with the right knowledge, you can optimize your tax filing process. This article covers essential tax tips for freelancers.',
+    },
+    {
+        image: '',
+        headline: 'Building a Freelance Portfolio that Attracts Clients',
+        description: 'A strong portfolio is key to attracting clients. This article provides actionable tips on how to build a portfolio that showcases your best work and appeals to potential clients.',
+    },
+];
+

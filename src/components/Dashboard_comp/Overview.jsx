@@ -9,6 +9,7 @@ import { Box, Divider, Drawer } from '@mui/material';
 import { motion } from 'framer-motion';
 import { IoMenu } from 'react-icons/io5';
 import { faCalendar, faComments, faLightbulb, faMoneyBillTrendUp, faRectangleList } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 
 const overview_proj = [
@@ -35,47 +36,14 @@ const overview_proj = [
   },
 ]
 
-const deadline = [
-  {
-    day: 'Today',
-    task: 'Design a logo',
-    time: 'Today 5:00 PM',
-    client: 'ABC Corp'
-  },
-  {
-    day: 'Today',
-    task: 'Design a logo',
-    time: 'Today 5:00 PM',
-    client: 'ABC Corp'
-  },
-  {
-    day: 'Today',
-    task: 'Design a logo',
-    time: 'Today 5:00 PM',
-    client: 'ABC Corp'
-  },
-]
-
-const todo = [
-  {
-    img: '',
-    task: 'Finalize Project Alpha deliverables',
-    category: 'Technology'
-  },
-  {
-    img: '',
-    task: 'Finalize Project Alpha deliverables',
-    category: 'Technology'
-  },
-]
 
 const options = [
   { name: 'Overview', icon: faGauge },
   { name: 'Messages', icon: faComments },
   { name: 'My Projects', icon: faLightbulb },
-  { name: 'Proposals', icon: faRectangleList },
+  { name: 'My Biddings', icon: faRectangleList },
   { name: 'Earnings', icon: faMoneyBillTrendUp },
-  { name: 'Calendar', icon: faCalendar },
+  { name: 'Manage Projects', icon: faCalendar },
 ];
 
 // Custom label render function with adjusted position and multiple lines
@@ -165,7 +133,7 @@ const Overview = ({ handlepage, page }) => {
             {theme === 'dark' ? <FaSun /> : <FaMoon />}
           </button>
           <FontAwesomeIcon icon={faBell} className='text-xl hidden md:block' />
-          <span className='text-white font-semibold text-lg bg-gradient-to-r from-[#40AB7A] to-[#0A673B] px-3 py-2 rounded-lg'>+ New Proposal</span>
+          <span className='text-white font-semibold text-lg bg-gradient-to-r from-[#40AB7A] to-[#0A673B] px-3 py-2 rounded-lg'><Link to={'/joblisting'}>+ Find a Job</Link></span>
         </div>
       </div>
 
@@ -199,7 +167,7 @@ const Overview = ({ handlepage, page }) => {
               <h1 className='md:text-lg font-medium'>{item.title}</h1>
               <h1 className='text-xl md:text-3xl font-bold'>{item.num}</h1>
             </div>
-            <item.icon style={{ color: `${theme === 'dark' && index == 3 ? 'white':item.colour}` }} className='hidden md:block md:text-4xl' />
+            <item.icon style={{ color: `${theme === 'dark' && index == 3 ? 'white' : item.colour}` }} className='hidden md:block md:text-4xl' />
           </motion.div>
         ))}
       </motion.div>
@@ -290,7 +258,7 @@ const Overview = ({ handlepage, page }) => {
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
         {/* Active Projects */}
         <div className='w-full'>
-          <h1 className={`font-bold text-lg mb-2 ${theme === 'dark' ? 'text-white':''}`}>Active Projects</h1>
+          <h1 className={`font-bold text-lg mb-2 ${theme === 'dark' ? 'text-white' : ''}`}>Active Projects</h1>
           <div className='w-full border-[1px] border-[#CDCDCD] px-4 rounded-lg overflow-auto'>
             <table className='w-full border-spacing-y-2' style={{ borderCollapse: 'separate', borderSpacing: '0 15px' }}>
               <thead>
@@ -306,10 +274,10 @@ const Overview = ({ handlepage, page }) => {
                 {/* Your data rows */}
                 {overview_proj.map((item, index) => (
                   <tr key={index} className='border-t border-[#CDCDCD]'>
-                    <td className={`${theme === 'dark'? 'text-white':''} font-bold`}>{item.name}</td>
-                    <td className={`${theme === 'dark'? 'text-white':''} font-bold`}>{item.client}</td>
-                    <td className={`${theme === 'dark'? 'text-white':''} font-bold`}>{item.status}</td>
-                    <td className={`${theme === 'dark'? 'text-white':''} font-bold`}>{item.deadline}</td>
+                    <td className={`${theme === 'dark' ? 'text-white' : ''} font-bold`}>{item.name}</td>
+                    <td className={`${theme === 'dark' ? 'text-white' : ''} font-bold`}>{item.client}</td>
+                    <td className={`${theme === 'dark' ? 'text-white' : ''} font-bold`}>{item.status}</td>
+                    <td className={`${theme === 'dark' ? 'text-white' : ''} font-bold`}>{item.deadline}</td>
                     <td className={`w-fit font-bold text-white rounded-xl text-center ${item.payment === 'Pending' ? 'bg-[#FFA500]' : 'bg-[#089451]'}`}>{item.payment}</td>
                   </tr>
                 ))}

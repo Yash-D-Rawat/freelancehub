@@ -153,23 +153,27 @@ function Projectlisting({ handlepage, page }) {
         animate="center"
         exit="exit"
         custom={value}
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10"
-         // Ensures uniform height for grid items
+        className="grid grid-cols-1 sm:grid-cols-2  gap-6"
+      // Ensures uniform height for grid items
       >
         {projectlistings.map((item) => {
           return (
-            <div className="rounded-lg flex flex-col justify-between h-[300]">
+            <div className="rounded-xl flex flex-col p-2 justify-between h-[28rem] border-[#adadad] border-[1px]">
               <div
-                className={`relative rounded-xl h-full py-4 px-5 flex flex-col justify-around bg-gray-600 bg-url bg-[url('/images/proj1.png')] bg-cover bg-center`}
+                className={`relative rounded-xl h-[92%] py-4 px-5 flex flex-col justify-around bg-gray-600 bg-url bg-[url('/images/proj1.png')] bg-cover bg-center`}
               >
                 <div className="h-full w-full bg-black opacity-70 absolute top-0 left-0 rounded-xl"></div>
-                <div className="flex flex-col justify-evenly h-[40%]">
+                <div className="flex flex-col gap-3">
                   <p className="bg-white text-sm px-2 py-1 rounded-xl w-fit z-10">{item.time}</p>
                   <p className="text-white z-10">{item.name}</p>
-                  <p className="text-white text-3xl font-bold z-10">{item.task}</p>
+                  <p className="text-white text-2xl font-bold z-10">{item.task}</p>
                   <p className="bg-[#dcdcdc] text-sm px-2 py-1 rounded-xl w-fit z-10">{item.category}</p>
                 </div>
                 <p className="bg-opacity-50 bg-white rounded-lg p-2 z-10 mt-2">{item.description}</p>
+              </div>
+              <div className='flex justify-between'>
+                <p className='font-bold text-2xl px-3'>${item.minamount} - ${item.maxamount}</p>
+                <button className='bg-gradient-to-r from-[#40AB7A] to-[#0A673B] text-white font-semibold rounded-2xl px-2'>Place Bid</button>
               </div>
             </div>
           );

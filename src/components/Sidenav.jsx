@@ -30,31 +30,34 @@ export default function Sidenav() {
     const items = [
         { page: 'Home', icon: FaHome, link: '/' },
         { page: 'Dashboard', icon: MdEmojiEvents, link: '/dashboard' },
-        { page: 'Event Map', icon: FaMapMarkerAlt, link: '/' },
-        { page: 'About Us', icon: MdOutlineMiscellaneousServices, link: '/' },
+        { page: 'Find Job', icon: FaMapMarkerAlt, link: '/joblisting' },
+        { page: 'Find Freelancer', icon: MdOutlineMiscellaneousServices, link: '/freelancerlist' },
+        { page: 'Sign Up', icon: MdOutlineMiscellaneousServices, link: '/signup' },
+        { page: 'Login', icon: MdOutlineMiscellaneousServices, link: '/login' },
     ];
 
     const DrawerList = (
         <Box
-            sx={{ width: 250 }}
+            sx={{ width: 250, height: '100%', backgroundColor: `${theme === 'dark'? 'black':'#45b280'}`}}
             role="presentation"
             onClick={toggleDrawer(false)}
             onKeyDown={toggleDrawer(false)}
+            
         >
-            <List>
+            <div className='flex flex-col mt-6 gap-6 cursor-pointer text-white font-bold text-xl'>
                 {items.map((item, index) => (
                     <Link to={item.link} key={index}>
                         <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>
-                                    <item.icon />
+                                    <item.icon className='text-[#FFA500] size-7'/>
                                 </ListItemIcon>
                                 <ListItemText primary={item.page} />
                             </ListItemButton>
                         </ListItem>
                     </Link>
                 ))}
-            </List>
+            </div>
         </Box>
     );
 
