@@ -34,6 +34,7 @@ export default function Sidenav() {
         { page: 'Find Freelancer', icon: MdOutlineMiscellaneousServices, link: '/freelancerlist' },
         { page: 'Sign Up', icon: MdOutlineMiscellaneousServices, link: '/signup' },
         { page: 'Login', icon: MdOutlineMiscellaneousServices, link: '/login' },
+        { page: 'Logout', icon: MdOutlineMiscellaneousServices, link: '/' },
     ];
 
     const DrawerList = (
@@ -62,14 +63,14 @@ export default function Sidenav() {
     );
 
     return (
-        <div className={`md:hidden flex items-center justify-evenly w-full fixed top-0 left-0 z-50 p-4
+        <div className={`md:hidden flex items-center justify-between w-full fixed top-0 left-0 z-50 p-4
         ${theme === 'dark' ? 'bg-black bg-opacity-50' : 'bg-opacity-50'} 
         backdrop-blur-md shadow-lg rounded-lg`}>
             <IoMenu onClick={toggleDrawer(true)} className="cursor-pointer text-2xl" />
             <Drawer anchor="left" open={open} onClose={toggleDrawer(false)}>
                 {DrawerList}
             </Drawer>
-
+            <img src="/images/logo.jpeg" alt="" className='h-10  rounded-xl'/>
             {/* Theme Toggle Button */}
             <button
                 className={`p-2 rounded-full border-2 border-white bg-transparent ${theme === 'dark' ? 'text-white' : 'text-black'}`}

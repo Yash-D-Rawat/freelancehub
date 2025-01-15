@@ -107,7 +107,7 @@ function Earnings({ handlepage, page }) {
 
     const DrawerList = (
         <Box
-            sx={{ width: 250, backgroundColor: 'black', height: '100%' }}
+            sx={{ width: 250, backgroundColor: theme === 'dark' ? '#089451':'black', height: '100%' }}
             role="presentation"
             onClick={toggleDrawer(false)}
             onKeyDown={toggleDrawer(false)}
@@ -224,7 +224,7 @@ function Earnings({ handlepage, page }) {
                                 <img src="" alt="" />
                                 <div>
                                     <h1 className='truncate text-[#089451] text-lg font-bold'>{item.headline}</h1>
-                                    <p className='line-clamp-2 text-lg font-bold'>{item.description}</p>
+                                    <p className={`line-clamp-2 text-lg font-bold ${theme === 'dark' ? 'text-white':''}`}>{item.description}</p>
                                 </div>
                             </div>
                         })}

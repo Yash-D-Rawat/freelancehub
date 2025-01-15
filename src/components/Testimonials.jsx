@@ -40,7 +40,7 @@ function Testimonials() {
         centerPadding: "0px",
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 1290,
                 settings: {
                     slidesToShow: 2,
                     centerMode: false,
@@ -57,7 +57,7 @@ function Testimonials() {
     };
 
     return (
-        <div className="relative h-screen w-full overflow-hidden">
+        <div className="relative h-fit w-full overflow-hidden">
             {/* Background Video */}
             <video
                 className="absolute top-0 left-0 w-full h-full object-cover"

@@ -31,8 +31,8 @@ function Navbar() {
         <div className={`fixed top-0 left-0 z-50 w-full hidden md:flex items-center justify-between p-4
         ${theme === 'dark' ? 'bg-black bg-opacity-50' : 'bg-opacity-50'} 
         backdrop-blur-md shadow-lg rounded-lg`}>
-            <h1 className={`text-2xl font-bold ${theme === 'dark' ? 'text-white' : 'text-[#089451]'}`}>Freelance Hub</h1>
-
+            
+            <img src="/images/logo.jpeg" alt="" className='h-10 rounded-xl'/>
             <ul className="hidden sm:flex gap-6 font-bold">
                 <li
                     className={`cursor-pointer text-lg ${theme === 'dark' ? 'text-white' : 'text-[#089451]'} ${selectedLink === 'home' ? 'border-b-2 border-[#FFA500]' : ''}`}
@@ -89,6 +89,7 @@ function Navbar() {
             </ul>
 
             <div className='flex gap-4 items-center'>
+            <img src="/images/logo.jpeg" alt="" className='h-10 md:hidden rounded-xl'/>
                 <button
                     className={`p-2 rounded-full border-2 border-white bg-transparent ${theme === 'dark' ? 'text-white' : 'text-black'}`}
                     onClick={toggleTheme}

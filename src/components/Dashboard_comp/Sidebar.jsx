@@ -2,12 +2,13 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faComments, faLightbulb, faMoneyBillTrendUp, faRectangleList, faGauge } from '@fortawesome/free-solid-svg-icons';
 import { Divider } from '@mui/material';
-import { IoMenu } from 'react-icons/io5';
+import { IoLogOut, IoMenu } from 'react-icons/io5';
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import { motion } from 'framer-motion';
 import { useTheme } from '../../Context/ThemeContext';
 import { FaMoon, FaSun } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const options = [
     { name: 'Overview', icon: faGauge },
@@ -21,6 +22,15 @@ const options = [
 export default function Sidenav({ handlepage, page }) {
     const [open, setOpen] = React.useState(false);
     const { theme, toggleTheme } = useTheme();
+    const navigate = useNavigate();
+    function handleLogout() {
+        // Clear the 'user' from localStorage
+        localStorage.removeItem('users');
+      
+        // Navigate to the home page
+        
+        navigate('/', {replace:true});
+      }
 
     const toggleDrawer = (newOpen) => (event) => {
         if (
@@ -59,14 +69,16 @@ export default function Sidenav({ handlepage, page }) {
                     </motion.div>
                 ))}
                 <Divider style={{ backgroundColor: 'black' }} />
+                <IoLogOut className='size-6 text-[#FFA500]' />
+                <h1 className='text-black text-xl font-bold'>Logout</h1>
             </div>
         </Box>
     );
 
     return (
         <>
-            
-            
+
+
 
             {/* Desktop View */}
             <div className={`hidden md:flex ${theme === 'dark' ? 'bg-[#089451]' : 'bg-black'} w-[20%] justify-center h-full`}>
@@ -89,7 +101,25 @@ export default function Sidenav({ handlepage, page }) {
                         </motion.div>
                     ))}
                     <Divider style={{ backgroundColor: 'white' }} />
+                    <motion.div
+                        
+                        initial={{ x: -100, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{
+                            type: 'spring',
+                            stiffness: 50,
+                            delay: 0.2,
+                        }}
+                        onClick={handleLogout}
+                        className={`flex items-center gap-3 ${(theme === 'dark') ? 'bg-black' : ''} px-4 py-2 rounded-lg`}
+                    >
+                        <IoLogOut className='size-6 text-[#FFA500]' />
+                        <h1 className='text-xl text-white font-bold' >Logout</h1>
+                    </motion.div>
+
+
                 </div>
+
             </div>
         </>
     );

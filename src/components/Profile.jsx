@@ -1,6 +1,14 @@
 import React from "react";
 import { FaLinkedin, FaGithub, FaTwitter, FaEdit, FaPlus } from 'react-icons/fa';
+import { useLocation, useParams } from "react-router-dom";
+import { freelancers } from "./data/Freelancer";
 function Profile() {
+    const { index } = useParams();
+    const freelancer = freelancers[index];
+
+    if (!freelancer) {
+        return <div>No freelancer data available.</div>;
+    }
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Header Section */}
@@ -10,7 +18,7 @@ function Profile() {
                     <div className="flex items-center">
                         <div className="relative">
                             <img
-                                src="https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg"
+                                src={freelancer.img}
                                 alt="Profile"
                                 className="w-36 h-36 rounded-full border-4 border-yellow-400 object-cover transform transition duration-500 hover:scale-110"
                             />
@@ -20,10 +28,10 @@ function Profile() {
                         </div>
                         <div className="ml-8">
                             <h1 className="text-3xl font-bold transform transition duration-300 hover:scale-105">
-                                John Doe
+                                {freelancer.name}
                             </h1>
                             <p className="text-xl text-white mt-2 font-semibold">
-                                Web Developer | Graphic Designer
+                                {freelancer.profession}
                             </p>
                             <div className="mt-4 flex space-x-4">
                                 <button className="px-6 py-2 bg-[#ffa500] text-white rounded-xl hover:bg-yellow-500 transition duration-300 font-bold transform hover:scale-105">
@@ -41,7 +49,7 @@ function Profile() {
                                 href="mailto:johndoe@gmail.com"
                                 className="text-white hover:text-gray-100 transition duration-300"
                             >
-                                johndoe@gmail.com
+                                {freelancer.name}@gmail.com
                             </a>
                         </p>
                         <p className="text-lg mt-2 font-bold">
@@ -89,12 +97,7 @@ function Profile() {
                 <div className="bg-white p-6 w-full md:w-1/2 rounded-2xl shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105">
                     <h2 className="text-2xl text-[#2a5243] font-bold">About Me</h2>
                     <p className="mt-4 text-black">
-                        I am a full-stack developer with over 5 years of experience building
-                        responsive web applications. I specialize in front-end development,
-                        working with technologies like React.js and Redux, and also have a
-                        strong understanding of back-end technologies such as Node.js and
-                        MongoDB. My passion for web design and user experience drives me to
-                        create intuitive and visually appealing interfaces.
+                        {freelancer.description}
                     </p>
                 </div>
                 <div className="flex gap-8 w-full md:w-1/2">
@@ -104,18 +107,13 @@ function Profile() {
                             Skills & Expertise
                         </h2>
                         <div className="flex flex-wrap gap-4 mt-4">
-                            <span className="bg-green-100 text-green-700 py-2 px-4 rounded-full text-sm transform transition duration-300 hover:scale-105">
-                                React.js
-                            </span>
-                            <span className="bg-green-100 text-green-700 py-2 px-4 rounded-full text-sm transform transition duration-300 hover:scale-105">
-                                Node.js
-                            </span>
-                            <span className="bg-green-100 text-green-700 py-2 px-4 rounded-full text-sm transform transition duration-300 hover:scale-105">
-                                Figma
-                            </span>
-                            <span className="bg-green-100 text-green-700 py-2 px-4 rounded-full text-sm transform transition duration-300 hover:scale-105">
-                                Canva
-                            </span>
+                            {freelancer.topSkills.map((item) => {
+                                return <span className="bg-green-100 text-green-700 py-2 px-4 rounded-full text-sm transform transition duration-300 hover:scale-105">
+                                    {item}
+                                </span>
+                            })}
+
+                            
                         </div>
                         <button className="mt-6 px-3 py-2 font-bold bg-[#ffa500] text-white rounded-xl hover:bg-yellow-500 transition duration-300 transform hover:scale-105">
                             Add Skill

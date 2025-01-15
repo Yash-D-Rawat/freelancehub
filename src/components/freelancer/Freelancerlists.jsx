@@ -8,6 +8,7 @@ import { faCalendar, faComments, faLightbulb, faMoneyBillTrendUp, faRectangleLis
 import { useTheme } from '../../Context/ThemeContext';
 import PropTypes from 'prop-types';
 import { freelancers } from '../data/Freelancer';
+import { Link } from 'react-router-dom';
 
 function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -115,71 +116,76 @@ function Freelancerlists() {
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="w-full md:flex justify-between mb-10"
+                                
                             >
-                                {/* Left Freelancer Info */}
-                                <motion.div
-                                    initial={{ x: '-100%' }}
-                                    animate={{ x: 0 }}
-                                    exit={{ x: '100%' }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    className={`md:w-[65%] ${theme === 'dark' ? 'bg-[#2c2c2c]' : 'bg-white'} p-3 rounded-t-xl md:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300`}
+                                <Link
+                                    to={`/profile/${index}`}
+                                    className="w-full md:flex justify-between mb-10"
                                 >
-                                    <div className={`md:flex justify-between `}>
-                                        <div className={`md:flex gap-4 `} >
-                                            <img src={item.img} alt="" className="block md:rounded-full md:hidden w-full justify-self-center rounded-2xl md:h-14 mb-4" />
-                                            <img src={item.img} alt="" className="hidden rounded-full md:block h-14 mb-4" />
-                                            <div className=''>
-                                                <div className={`flex justify-between font-bold text-xl ${theme === 'dark' ? 'text-white' : 'text-[#2a5243]'} `}>
-                                                    {item.name}
-                                                    <div className="flex md:hidden gap-2 h-fit items-center ml-3">
-                                                        <FaStar className="text-[#FFA500] size-6" />
-                                                        <h1 className="text-[#FFA500] text-xl">{item.rating}</h1>
+                                    {/* Left Freelancer Info */}
+                                    <motion.div
+                                        initial={{ x: '-100%' }}
+                                        animate={{ x: 0 }}
+                                        exit={{ x: '100%' }}
+                                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                                        className={`md:w-[65%] ${theme === 'dark' ? 'bg-[#2c2c2c]' : 'bg-white'} p-3 rounded-t-xl md:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300`}
+                                    >
+                                        <div className={`md:flex justify-between `}>
+                                            <div className={`md:flex gap-4 `} >
+                                                <img src={item.img} alt="" className="block md:rounded-full md:hidden w-full justify-self-center rounded-2xl md:h-14 mb-4" />
+                                                <img src={item.img} alt="" className="hidden rounded-full md:block h-14 mb-4" />
+                                                <div className=''>
+                                                    <div className={`flex justify-between font-bold text-xl ${theme === 'dark' ? 'text-white' : 'text-[#2a5243]'} `}>
+                                                        {item.name}
+                                                        <div className="flex md:hidden gap-2 h-fit items-center ml-3">
+                                                            <FaStar className="text-[#FFA500] size-6" />
+                                                            <h1 className="text-[#FFA500] text-xl">{item.rating}</h1>
+                                                        </div>
+                                                    </div>
+                                                    <h1 className={`font-semibold ${theme === 'dark' ? 'text-white' : 'text-[#2a5243]'}`}>{item.location}</h1>
+                                                    <p className={`mt-3 mb-5 ${theme === 'dark' ? 'text-white' : 'text-[#2a5243]'} font-semibold `}>{item.description}</p>
+
+                                                    <div className="flex gap-3">
+                                                        <button className="text-white rounded-2xl px-3 py-1 bg-gradient-to-r from-[#40AB7A] to-[#0A673B]">
+                                                            Start Chat
+                                                        </button>
+                                                        <button className="px-3 py-1 text-[#40AB7A] border-2 border-[#40AB7A] rounded-2xl">
+                                                            Favourite
+                                                        </button>
                                                     </div>
                                                 </div>
-                                                <h1 className={`font-semibold ${theme === 'dark' ? 'text-white' : 'text-[#2a5243]'}`}>{item.location}</h1>
-                                                <p className={`mt-3 mb-5 ${theme === 'dark' ? 'text-white' : 'text-[#2a5243]'} font-semibold `}>{item.description}</p>
+                                            </div>
 
-                                                <div className="flex gap-3">
-                                                    <button className="text-white rounded-2xl px-3 py-1 bg-gradient-to-r from-[#40AB7A] to-[#0A673B]">
-                                                        Start Chat
-                                                    </button>
-                                                    <button className="px-3 py-1 text-[#40AB7A] border-2 border-[#40AB7A] rounded-2xl">
-                                                        Favourite
-                                                    </button>
-                                                </div>
+                                            <div className="hidden md:flex gap-2 h-fit items-center ml-3">
+                                                <FaStar className="text-[#FFA500] size-6" />
+                                                <h1 className="text-[#FFA500] text-xl">{item.rating}</h1>
                                             </div>
                                         </div>
+                                    </motion.div>
 
-                                        <div className="hidden md:flex gap-2 h-fit items-center ml-3">
-                                            <FaStar className="text-[#FFA500] size-6" />
-                                            <h1 className="text-[#FFA500] text-xl">{item.rating}</h1>
+                                    {/* Right Skills Info */}
+                                    <motion.div
+                                        initial={{ x: '100%' }}
+                                        animate={{ x: 0 }}
+                                        exit={{ x: '-100%' }}
+                                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                                        className={`md:w-[30%] ${theme === 'dark' ? 'bg-[#2c2c2c] text-white' : 'bg-white text-[#2a5243]'} p-3 rounded-b-xl md:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300`}
+                                    >
+                                        <h1 className="text-xl font-bold  mb-4">Top Skills</h1>
+                                        <div className="flex flex-wrap gap-1 md:grid-cols-2 md:grid">
+                                            {item.topSkills.map((skill, skillIndex) => {
+                                                return (
+                                                    <div
+                                                        key={skillIndex}
+                                                        className={`cursor-pointer ${theme === 'dark' ? 'bg-[#2a5243]' : 'bg-[#F4F4F4]'}  w-fit  text-sm font-medium py-1 px-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 ease-in-out transform mb-2`}
+                                                    >
+                                                        {skill}
+                                                    </div>
+                                                );
+                                            })}
                                         </div>
-                                    </div>
-                                </motion.div>
-
-                                {/* Right Skills Info */}
-                                <motion.div
-                                    initial={{ x: '100%' }}
-                                    animate={{ x: 0 }}
-                                    exit={{ x: '-100%' }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    className={`md:w-[30%] ${theme === 'dark' ? 'bg-[#2c2c2c] text-white' : 'bg-white text-[#2a5243]'} p-3 rounded-b-xl md:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300`}
-                                >
-                                    <h1 className="text-xl font-bold  mb-4">Top Skills</h1>
-                                    <div className="flex flex-wrap gap-1 md:grid-cols-2 md:grid">
-                                        {item.topSkills.map((skill, skillIndex) => {
-                                            return (
-                                                <div
-                                                    key={skillIndex}
-                                                    className={`cursor-pointer ${theme === 'dark' ? 'bg-[#2a5243]' : 'bg-[#F4F4F4]'}  w-fit  text-sm font-medium py-1 px-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 ease-in-out transform mb-2`}
-                                                >
-                                                    {skill}
-                                                </div>
-                                            );
-                                        })}
-                                    </div>
-                                </motion.div>
+                                    </motion.div>
+                                </Link>
                             </motion.div>
                         );
                     })}

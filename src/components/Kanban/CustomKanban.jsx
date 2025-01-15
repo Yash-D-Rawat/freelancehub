@@ -38,7 +38,7 @@ export const CustomKanban = ({ handlepage, page }) => {
 
     const DrawerList = (
         <Box
-            sx={{ width: 250, backgroundColor: 'black', height: '100%' }}
+            sx={{ width: 250, backgroundColor: theme === 'dark' ? '#089451':'black', height: '100%' }}
             role="presentation"
             onClick={toggleDrawer(false)}
             onKeyDown={toggleDrawer(false)}
@@ -77,7 +77,7 @@ export const CustomKanban = ({ handlepage, page }) => {
 
     return (
         <motion.div
-            className="h-screen w-full md:w-[80%] bg-white text-black relative p-5"
+            className={`${theme === 'dark'? 'bg-black':'bg-white'} h-screen w-full md:w-[80%]  text-black relative p-5`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
@@ -111,7 +111,7 @@ export const CustomKanban = ({ handlepage, page }) => {
 
 const UserDirections = ({ closeModal }) => {
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4`}>
             <div className="bg-black bg-opacity-75 p-8 rounded-md w-full max-w-lg md:w-1/3 relative">
                 <button
                     onClick={closeModal}

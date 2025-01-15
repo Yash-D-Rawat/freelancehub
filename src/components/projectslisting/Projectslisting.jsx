@@ -12,6 +12,8 @@ import { motion } from 'framer-motion';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import { Divider, Drawer } from '@mui/material';
 import { IoMenu } from 'react-icons/io5';
+import NewProposalModal from './NewProposalModal';
+import JobPostingForm from './JobPostingForm';
 
 const options = [
   { name: 'Overview', icon: '' },
@@ -55,6 +57,25 @@ function Projectlisting({ handlepage, page }) {
   const { theme, toggleTheme } = useTheme();
   const [value, setValue] = React.useState(0);
   const [open, setOpen] = React.useState(false);
+
+  // State to control modal visibility for Create New Proposal
+  const [isProposalModalOpen, setIsProposalModalOpen] = React.useState(false);
+ 
+
+  // Function to toggle proposal modal visibility
+  const [isJobModalOpen, setIsJobModalOpen] = React.useState(false);
+
+  // Function to toggle proposal modal visibility
+  const toggleProposalModal = () => {
+    setIsProposalModalOpen(!isProposalModalOpen);
+  };
+
+  // Function to toggle job modal visibility
+  const toggleJobModal = () => {
+    setIsJobModalOpen(!isJobModalOpen);
+  };
+
+  
 
   const toggleDrawer = (newOpen) => (event) => {
     if (
@@ -139,7 +160,7 @@ function Projectlisting({ handlepage, page }) {
             {theme === 'dark' ? <FaSun /> : <FaMoon />}
           </button>
           <FontAwesomeIcon icon={faBell} className='text-xl hidden md:block' />
-          <span className='text-white font-semibold text-lg bg-gradient-to-r from-[#40AB7A] to-[#0A673B] px-3 py-2 rounded-lg'>+ New Proposal</span>
+          <span className='text-white font-semibold text-lg bg-gradient-to-r from-[#40AB7A] to-[#0A673B] px-3 py-2 rounded-lg cursor-pointer' onClick={toggleJobModal}>+ Create Job</span>
         </div>
       </div>
 
@@ -160,7 +181,7 @@ function Projectlisting({ handlepage, page }) {
           return (
             <div className="rounded-xl flex flex-col p-2 justify-between h-[28rem] border-[#adadad] border-[1px]">
               <div
-                className={`relative rounded-xl h-[92%] py-4 px-5 flex flex-col justify-around bg-gray-600 bg-url bg-[url('/images/proj1.png')] bg-cover bg-center`}
+                className={`relative rounded-xl h-[90%] py-4 px-5 flex flex-col justify-around bg-gray-600 bg-url bg-[url('/images/proj1.png')] bg-cover bg-center`}
               >
                 <div className="h-full w-full bg-black opacity-70 absolute top-0 left-0 rounded-xl"></div>
                 <div className="flex flex-col gap-3">
@@ -172,16 +193,18 @@ function Projectlisting({ handlepage, page }) {
                 <p className="bg-opacity-50 bg-white rounded-lg p-2 z-10 mt-2">{item.description}</p>
               </div>
               <div className='flex justify-between'>
-                <p className='font-bold text-2xl px-3'>${item.minamount} - ${item.maxamount}</p>
-                <button className='bg-gradient-to-r from-[#40AB7A] to-[#0A673B] text-white font-semibold rounded-2xl px-2'>Place Bid</button>
+                <p className={`${theme === 'dark' ? 'text-white':''} font-bold text-2xl px-3`}>${item.minamount} - ${item.maxamount}</p>
+                <button onClick={toggleProposalModal} className='bg-gradient-to-r from-[#40AB7A] to-[#0A673B] text-white font-semibold rounded-2xl px-2'>Place Bid</button>
+                
               </div>
+              
             </div>
           );
         })}
       </motion.div>
 
-
-
+      <NewProposalModal isOpen={isProposalModalOpen} onClose={toggleProposalModal} />
+      <JobPostingForm isOpen={isJobModalOpen} onClose={toggleJobModal} />
     </div>
   );
 }

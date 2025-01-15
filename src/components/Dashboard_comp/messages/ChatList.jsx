@@ -23,7 +23,7 @@ const options = [
     { name: 'Overview', icon: faGauge },
     { name: 'Messages', icon: faComments },
     { name: 'My Projects', icon: faLightbulb },
-    { name: 'Proposals', icon: faRectangleList },
+    { name: 'My Biddings', icon: faRectangleList },
     { name: 'Earnings', icon: faMoneyBillTrendUp },
     { name: 'Manage Projects', icon: faCalendar },
 ];
@@ -45,7 +45,7 @@ function ChatList({ select, setSelect, setShowChat, page, handlepage }) {
 
     const DrawerList = (
         <Box
-            sx={{ width: 250, backgroundColor: 'black', height: '100%' }}
+            sx={{ width: 250, backgroundColor: theme === 'dark' ? '#089451':'black', height: '100%' }}
             role="presentation"
             onClick={toggleDrawer(false)}
             onKeyDown={toggleDrawer(false)}

@@ -1,4 +1,4 @@
-import { faBell } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faGauge } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faComments, faLightbulb, faMoneyBillTrendUp, faRectangleList } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
@@ -16,7 +16,7 @@ import { FaTruckFast } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 
 const options = [
-    { name: 'Overview', icon: '' },
+    { name: 'Overview', icon: faGauge },
     { name: 'Messages', icon: faComments },
     { name: 'My Projects', icon: faLightbulb },
     { name: 'My Biddings', icon: faRectangleList },
@@ -71,7 +71,7 @@ function MyBiddings({ handlepage, page }) {
 
     const DrawerList = (
         <Box
-            sx={{ width: 250, backgroundColor: 'black', height: '100%' }}
+            sx={{ width: 250, backgroundColor: theme === 'dark' ? '#089451':'black', height: '100%' }}
             role="presentation"
             onClick={toggleDrawer(false)}
             onKeyDown={toggleDrawer(false)}
@@ -145,7 +145,7 @@ function MyBiddings({ handlepage, page }) {
                 </div>
             </div>
 
-            <h1 className={`${theme === 'dark' ? 'text-white' : 'text-[#2a5243]'}  text-4xl font-bold mb-2 mt-7`}>My Projects</h1>
+            <h1 className={`${theme === 'dark' ? 'text-white' : 'text-[#2a5243]'}  text-4xl font-bold mb-2 mt-7`}>My Biddings</h1>
             <p className='text-[#757575] text-lg font-semibold mb-5'>Manage your ongoing and completed work in one place.</p>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <Tabs

@@ -20,11 +20,11 @@ function LandingPage() {
     >
       <Navbar />
       <Sidenav/>
-      <main className="w-full flex flex-col gap-8">
+      <main className="w-full flex flex-col">
         <section className="w-full sm:w-11/12 md:w-full">
           <Herosection />
         </section>
-        <section className="w-full sm:w-11/12 md:w-full">
+        <section className="w-full sm:w-11/12 md:w-full mb-8">
           <Accountsteps />
         </section>
         <section className="w-full sm:w-11/12 md:w-full">
